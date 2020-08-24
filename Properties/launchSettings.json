@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "systemdsensordaemon": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
