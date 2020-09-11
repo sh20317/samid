@@ -3,7 +3,7 @@ Description=Savonia Measurements sensor poller
 
 [Service]
 Type=notify
-ExecStart=/usr/sbin/sensord
+ExecStart=/usr/sbin/samid
 
 [Install]
 WantedBy=multi-user.target
