@@ -47,24 +47,29 @@ namespace systemdsensordaemon
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-      _logger.LogInformation("samid running every: " + config.pollingFrequency + " seconds.");
-      _logger.LogInformation("samid outputs to: " + config.outputServer);
-      _logger.LogInformation("samid logging to journalctl: " + config.isLogging + ".");
-      
-      while (!stoppingToken.IsCancellationRequested) {
-        if (config.isLogging) {
-          config.sources.ForEach(
-            (source) => {
-              source.
-            });
-        }
+      if (config != null) {
+        _logger.LogInformation("samid running every: " + config.pollingFrequency + " seconds.");
+        _logger.LogInformation("samid outputs to: " + config.outputServer);
+        _logger.LogInformation("samid logging to journalctl: " + config.isLogging + ".");
 
-        _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+        while (!stoppingToken.IsCancellationRequested) {
+          if (config.isLogging) {
+            config.sources.ForEach(
+              (source) => {
+
+              });
+          }
+
+          _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
           await Task.Delay(config.pollingFrequency * 1000, stoppingToken);
-        
-      }
-      _logger.LogInformation("samid POLLING STOPPED.");
+        }
+      }       
+    }
 
+    public override Task StopAsync(CancellationToken cancellationToken)
+    {
+      _logger.LogInformation("samid POLLING STOPPED.");
+      return base.StopAsync(cancellationToken);
     }
 
     private ConfigStatusEnum ReadConfig(FileInfo config) {
