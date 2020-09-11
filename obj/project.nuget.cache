@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "93tSLmSYoM3z981srR08U7QXcbk8ah2yJ2Ger8xcaZ5LfFAgs9mFeg4r/tK2vFG9U/ZXhCwlccRfhqCQu7qzhw==",
+  "dgSpecHash": "fEdeCq5RCPTUd+l7AF757v2AM6y1kT1oLdnoI+tIdUT0+5xFvzMQyB9I60sW9zITZ2YSOt5TOsse4zCMFiRB2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\sh20317\\source\\repos\\systemdsensordaemon\\systemdsensordaemon.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,8 @@
     "C:\\Users\\sh20317\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0-preview7.19362.4\\microsoft.extensions.primitives.3.0.0-preview7.19362.4.nupkg.sha512",
     "C:\\Users\\sh20317\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0-preview7.19362.9\\microsoft.netcore.platforms.3.0.0-preview7.19362.9.nupkg.sha512",
     "C:\\Users\\sh20317\\.nuget\\packages\\microsoft.win32.registry\\4.6.0-preview7.19362.9\\microsoft.win32.registry.4.6.0-preview7.19362.9.nupkg.sha512",
+    "C:\\Users\\sh20317\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\sh20317\\.nuget\\packages\\newtonsoft.json.schema\\3.0.13\\newtonsoft.json.schema.3.0.13.nupkg.sha512",
     "C:\\Users\\sh20317\\.nuget\\packages\\system.componentmodel.annotations\\4.6.0-preview7.19362.9\\system.componentmodel.annotations.4.6.0-preview7.19362.9.nupkg.sha512",
     "C:\\Users\\sh20317\\.nuget\\packages\\system.diagnostics.eventlog\\4.6.0-preview7.19362.9\\system.diagnostics.eventlog.4.6.0-preview7.19362.9.nupkg.sha512",
     "C:\\Users\\sh20317\\.nuget\\packages\\system.memory\\4.5.2\\system.memory.4.5.2.nupkg.sha512",
