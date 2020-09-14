@@ -30,6 +30,7 @@ namespace systemdsensordaemon
     public override Task StartAsync(CancellationToken cancellationToken)
     {
       FileInfo fileInfo = new FileInfo("");
+
       _logger.LogInformation("samid worker starting...");
       switch (ReadConfig(fileInfo)) {
         case ConfigStatusEnum.ConfigOk:
