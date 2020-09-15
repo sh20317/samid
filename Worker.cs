@@ -29,7 +29,7 @@ namespace systemdsensordaemon
 
     public override Task StartAsync(CancellationToken cancellationToken)
     {
-      FileInfo fileInfo = new FileInfo("");
+      FileInfo fileInfo = new FileInfo("/etc/samid.conf");
 
       _logger.LogInformation("samid worker starting...");
       switch (ReadConfig(fileInfo)) {
