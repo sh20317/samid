@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
@@ -20,7 +21,8 @@ namespace systemdsensordaemon
 
     private readonly ILogger<Worker> _logger;
     private DaemonConfig config;
-    
+    private BigInteger pollCount = 0;
+    private const String configurationFile = "/etc/samid.conf";
     public Worker(ILogger<Worker> logger)
     {
       _logger = logger;
@@ -29,9 +31,11 @@ namespace systemdsensordaemon
 
     public override Task StartAsync(CancellationToken cancellationToken)
     {
-      FileInfo fileInfo = new FileInfo("/etc/samid.conf");
+
+      FileInfo fileInfo = new FileInfo(configurationFile);
 
       _logger.LogInformation("samid worker starting...");
+      _logger.LogInformation("samid reading configuration file from "+ configurationFile);
       switch (ReadConfig(fileInfo)) {
         case ConfigStatusEnum.ConfigOk:
           _logger.LogInformation("samid configuration file OK.");
@@ -55,10 +59,12 @@ namespace systemdsensordaemon
 
         while (!stoppingToken.IsCancellationRequested) {
           if (config.isLogging) {
-            config.sources.ForEach(
+            if (config.sources != null) {
+              config.sources.ForEach(
               (source) => {
 
               });
+            }            
           }
 
           _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
@@ -70,6 +76,7 @@ namespace systemdsensordaemon
     public override Task StopAsync(CancellationToken cancellationToken)
     {
       _logger.LogInformation("samid POLLING STOPPED.");
+      _logger.LogInformation("samid poll count at {time} was " + pollCount.ToString(), DateTimeOffset.Now);
       return base.StopAsync(cancellationToken);
     }
 
